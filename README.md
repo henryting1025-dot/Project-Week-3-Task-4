@@ -12,7 +12,7 @@ Use bluetooth
 // Motor B
 #define MOTOR_B_EN 11  
 #define MOTOR_B_IN1 12 
-#define MOTOR_B_IN2 1  // 注意：Pin 1 容易与 Serial 冲突，已在 setup 中禁用 Serial
+#define MOTOR_B_IN2 1  
 
 // === 2. Bluetooth Pins (Using A4/A5 as SoftwareSerial) ===
 SoftwareSerial btSerial(A4, A5); // RX, TX
@@ -101,7 +101,6 @@ void setup() {
   lcd.print("BT Mode Ready"); 
   
   // Initialize Bluetooth ONLY
-  // !!! 重要：不要开启 Serial.begin(9600)，因为它会占用 Pin 1 导致 Motor B 失效 !!!
   btSerial.begin(9600); 
 
   // Setup Motor Pins
